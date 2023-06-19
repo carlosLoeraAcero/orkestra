@@ -1,29 +1,78 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
+<header>
+  <div class="container">
+    <div class="icon">
+      <img src="./assets/header/icon.png" alt="icon">
+    </div>
+    <div class="title"><router-link to="/" class="router-link">Orkestra</router-link></div>
+    <div class="profile">
+      <img src="./assets/header/profile.png" alt="icon">
+    </div>
+    <div class="car">
+      <img src="./assets/header/car.png" alt="icon">
+      <img class="centerCar" src="./assets/header/carrito.png" alt="car">
+    </div>
+    <div class="notifications">
+      <img src="./assets/header/notifications.png" alt="icon">
+      <img class="centerCampaign" src="./assets/header/campaign.png" alt="car">
+    </div>
+  </div>
+</header>
   <router-view/>
 </template>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+*{
+  padding: 0;
+  margin: 0;
+  
+  .container{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: #35495E;
+    text-align: center;
+    height: 60px;
+    background-image: url("./assets/header/fondoHeader.png");
 
-nav {
-  padding: 30px;
+    .icon{
+      width: 10%;
+      margin-top: 10px;
+    }
+    .title{
+      width: 45%;
+      margin-top: 12px;
+      font-size: 32px;
+      
+      .router-link{
+          color: #FFFFFF;
+          text-decoration: none;
+          
+      }
+    }
+    .profile{
+      width: 15%;
+      margin-top: 10px;
+    }
+    .car{
+      width: 15%;
+      margin-top: 10px;
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+      .centerCar{
+        position: absolute;
+        margin-left: -33px;
+        margin-top: 8px;
+      }
+    }
+    .notifications{
+      width: 15%;
+      margin-top: 10px;
 
-    &.router-link-exact-active {
-      color: #42b983;
+      .centerCampaign{
+        position: absolute;
+        margin-left: -30px;
+        margin-top: 7px;
+      }
     }
   }
 }

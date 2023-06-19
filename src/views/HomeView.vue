@@ -1,18 +1,44 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <Header/>
+    <div class="container-filtro">
+      <p class="filtro">Filtros</p>
+    </div>
+    <div class="body">
+
+    </div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import Header from '../components/Header';
 
 export default {
   name: 'HomeView',
   components: {
-    HelloWorld
-  }
+    Header
+  },
+
 }
 </script>
+
+<style lang="scss" scoped>
+
+.container-filtro{
+  width: 100%;
+  text-align: right;
+  box-sizing: border-box;
+  margin-left: -20px;
+
+  .filtro{
+    font-family: 'Hind';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    // line-height: 48px;
+    text-decoration-line: underline;
+    color: #2780BA;
+  }
+}
+
+</style>
