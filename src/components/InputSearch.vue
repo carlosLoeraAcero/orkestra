@@ -1,6 +1,6 @@
 <template>
     <div class="home">
-      <input type="text" placeholder="Buscar producto" class="inputSearch" v-model="valueInput" @change="changeValueInput">
+      <input type="text" placeholder="Buscar producto" class="inputSearch" v-model="valueInput" @input="changeValueInput">
       <img src="../assets/inputSearch/search.png" alt="search" class="search">
       <img src="../assets/inputSearch/barcode.png" alt="barcode" id="barcode" class="barcode" @click="goBarcodeView">
       <img src="../assets/inputSearch/x.png" alt="x" id="x" class="x hiddenclass" @click="deleteInfo">
@@ -16,12 +16,8 @@ export default {
 setup(){
     let router = useRouter();
     const store = useStore();
-    const productos = computed(() => store.state.memes);
+    const productos = computed(() => store.state.productos);
     const valueInput = computed(() => store.state.valueInput);
-
-      onMounted(() => {
-        store.dispatch("getProductos");
-      })
 
       const goBarcodeView = () => {
         router.push('/barcode')
@@ -33,14 +29,18 @@ setup(){
           store.dispatch("getInputValue",{
             value: e.target.value
           });
-          console.log("dd",valueInput.value)
+          store.dispatch("getProductos",{search:valueInput.value});
+          console.log("dd",valueInput)
         if(valueInput.value){
           ob.classList.add("hiddenclass");
           x.classList.remove("hiddenclass");
-          console.log(valueInput)
+          console.log("ifvalor",valueInput.value)
+          // $emit('onQuery',valueInput.value)
         }else{
           ob.classList.remove("hiddenclass");
           x.classList.add("hiddenclass");
+          console.log("elsevalor",valueInput.value)
+          // $emit('onQuery','')
         }
       }
 
@@ -50,8 +50,11 @@ setup(){
         store.dispatch("getInputValue",{
           value: ''
         });
+        store.dispatch("getProductos",{page:1, limit:10});
         ob.classList.remove("hiddenclass");
         x.classList.add("hiddenclass");
+        
+          // $emit('onQuery','')
       }
 
     return {
@@ -70,6 +73,7 @@ setup(){
   width: 100%;
   text-align: center;
   box-sizing: border-box;
+  position: relative;
 
   .inputSearch{
     box-sizing: border-box;

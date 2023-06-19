@@ -5,11 +5,11 @@
         <p class="textBack">Regresar</p>
     </div>
     <p class="escan">Escanea el código</p>
-    <div id="barcodeScanner">
+    <div id="barcodeScanner" class="barcodeScanner">
         <!-- <span id='loading-status' style='font-size:x-large'>Loading Library...</span> -->
         <p id="resultado"></p>
 		<div id="contenedor"></div>
-        <div id="qr-reader" style="width: 400px"></div>
+        <div id="qr-reader" class="cameraScan"></div>
     </div>
   </div>
 </template>
@@ -33,11 +33,16 @@ export default {
 
         onMounted(() => {
             function onScanSuccess(decodedText, decodedResult) {
+                html5QrcodeScanner.clear();
                 console.log(`Code scanned = ${decodedText}`, decodedResult);
-                alert(`Code scanned = ${decodedText}`)
+                // alert(`Code scanned = ${decodedText}`)
                  store.dispatch("getProductos",{
                         search: decodedText
                     });
+                store.dispatch("getInputValue",{
+                    value: decodedText
+                });
+                router.push('/')
             }
             var html5QrcodeScanner = new Html5QrcodeScanner(
                 "qr-reader", { fps: 10, qrbox: 250 });
@@ -83,6 +88,14 @@ export default {
     }
     .contenedor{
         width: 100px;
+    }
+    .barcodeScanner{
+        width: 100%;
+        text-align: center;
+
+        .cameraScan{
+            width: 110%;
+        }
     }
 }
 </style>

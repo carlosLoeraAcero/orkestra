@@ -4,7 +4,7 @@
     <div class="icon">
       <img src="./assets/header/icon.png" alt="icon">
     </div>
-    <div class="title"><router-link to="/" class="router-link">Orkestra</router-link></div>
+    <div class="title"><img src="./assets/header/icon.png" alt="icon" class="iconTitle"><router-link to="/" class="router-link">rkestra</router-link></div>
     <div class="profile">
       <img src="./assets/header/profile.png" alt="icon">
     </div>
@@ -34,6 +34,7 @@
     text-align: center;
     height: 60px;
     background-image: url("./assets/header/fondoHeader.png");
+    position: relative;
 
     .icon{
       width: 10%;
@@ -43,13 +44,20 @@
       width: 45%;
       margin-top: 12px;
       font-size: 32px;
+      position: relative;
       
       .router-link{
           color: #FFFFFF;
           text-decoration: none;
+          margin-left: 30px;
           
       }
+      .iconTitle{
+        position: absolute;
+        height: 60%;
+      }
     }
+
     .profile{
       width: 15%;
       margin-top: 10px;
