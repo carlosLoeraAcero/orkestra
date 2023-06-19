@@ -45,7 +45,7 @@ export default {
     let limit = 10;
 
       onMounted(() => {
-        store.dispatch("getProductos",{serach:valueInput.value,page:1, limit:10});
+        store.dispatch("getProductos",{search:valueInput.value,page:1, limit:10});
       })
 
       window.onscroll = () => {
