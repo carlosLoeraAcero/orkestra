@@ -46,20 +46,28 @@ export default {
 
       onMounted(() => {
         store.dispatch("getProductos",{search:valueInput.value,page:1, limit:10});
+          window.addEventListener('scroll', function() {
+  
+              const scrollHeight = Math.max(
+              document.body.scrollHeight, document.documentElement.scrollHeight,
+              document.body.offsetHeight, document.documentElement.offsetHeight,
+              document.body.clientHeight, document.documentElement.clientHeight
+              );
+              console.log('pageYOffset: '+window.pageYOffset+' innerHeight: '+window.innerHeight+' scrollHeight:'+scrollHeight);
+                if(window.pageYOffset + window.innerHeight >= scrollHeight-1) {
+
+                    limit +=10;
+                  if(valueInput){
+                      store.dispatch("getProductos",{search:valueInput.value,page:1, limit});
+                    }else{  
+                      store.dispatch("getProductos",{page:1, limit});
+                  }
+
+                }
+
+          });
       })
 
-      window.onscroll = () => {
-        let bottomOfWindow = document.documentElement.scrollTop + window.innerHeight === document.documentElement.offsetHeight;
-
-        if (bottomOfWindow) {
-          limit +=10;
-          if(valueInput){
-              store.dispatch("getProductos",{search:valueInput.value,page:1, limit});
-            }else{  
-              store.dispatch("getProductos",{page:1, limit});
-          }
-        }
-      };
 
 
     return{
