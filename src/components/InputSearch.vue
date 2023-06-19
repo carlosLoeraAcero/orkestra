@@ -2,8 +2,8 @@
     <div class="home">
       <input type="text" placeholder="Buscar producto" class="inputSearch" v-model="valueInput" @input="changeValueInput">
       <img src="../assets/inputSearch/search.png" alt="search" class="search">
-      <img src="../assets/inputSearch/barcode.png" alt="barcode" id="barcode" class="barcode" @click="goBarcodeView">
-      <img src="../assets/inputSearch/x.png" alt="x" id="x" class="x hiddenclass" @click="deleteInfo">
+      <img src="../assets/inputSearch/barcode.png" alt="barcode" id="barcode" class="barcode" v-if="!valueInput" @click="goBarcodeView">
+      <img src="../assets/inputSearch/x.png" alt="x" id="x" class="x" @click="deleteInfo" v-else>
     </div>
 </template>
 
@@ -24,37 +24,17 @@ setup(){
       }
 
       const changeValueInput = (e) => {
-        let ob = document.getElementById("barcode");
-        let x = document.getElementById("x");
           store.dispatch("getInputValue",{
             value: e.target.value
           });
           store.dispatch("getProductos",{search:valueInput.value});
-          console.log("dd",valueInput)
-        if(valueInput.value){
-          ob.classList.add("hiddenclass");
-          x.classList.remove("hiddenclass");
-          console.log("ifvalor",valueInput.value)
-          // $emit('onQuery',valueInput.value)
-        }else{
-          ob.classList.remove("hiddenclass");
-          x.classList.add("hiddenclass");
-          console.log("elsevalor",valueInput.value)
-          // $emit('onQuery','')
-        }
       }
 
       const deleteInfo = () => {
-        let ob = document.getElementById("barcode");
-        let x = document.getElementById("x");
         store.dispatch("getInputValue",{
           value: ''
         });
         store.dispatch("getProductos",{page:1, limit:10});
-        ob.classList.remove("hiddenclass");
-        x.classList.add("hiddenclass");
-        
-          // $emit('onQuery','')
       }
 
     return {
@@ -73,7 +53,10 @@ setup(){
   width: 100%;
   text-align: center;
   box-sizing: border-box;
-  position: relative;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: #E3E9EE;
 
   .inputSearch{
     box-sizing: border-box;

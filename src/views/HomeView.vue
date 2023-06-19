@@ -12,7 +12,7 @@
           <div class="allInfo">
             <p class="colorGris">{{product.Product_description}}</p>
             <p class="diferenteColor">{{product.Product_name}}</p>
-            <p class="colorGris">{{product.price_with_discount}}</p>
+            <p :class="product.price_with_discount !== 0 ? 'colorRed' : 'colorGris'">{{product.price_with_discount}}</p>
             <p class="colorGris">{{product.price}}</p>
             <p class="colorGris">{{product.color_name}}</p>
             <p class="colorGris">{{product.brand_name}}</p>
@@ -21,7 +21,7 @@
         <hr>
       </div>
     </div>
-    <div class="mensaje">
+    <div class="mensaje" v-if="productos.length===0">
       <p class="textMensaje">{{mensaje}}</p>
     </div>
   </div>
@@ -134,6 +134,9 @@ export default {
           .colorGris{
             color: #95A5A6;
           }
+          .colorRed{
+            color: red;
+          }
           .diferenteColor{
             color: #35495E;
           }
@@ -143,12 +146,27 @@ export default {
 }
 }
 @media screen and (min-width: 768px) {
-  .body .totalInfo .imgProduct{
-      width: 9%;
+  .colorFont .body .containerProductos .totalInfo .imgProduct{
+    width: 12%;
       margin-right: 20px;
       margin-left: 20px;
+      object-fit: contain;
     }
 }
+    @media screen and (min-width: 1024px) {
+      .colorFont .body .containerProductos .totalInfo .imgProduct{
+          width: 8%;
+          margin-right: 20px;
+          margin-left: 20px;
+          object-fit: contain;
+        }
+      .colorFont .container-filtro{
+        width: 100%;
+        text-align: right;
+        box-sizing: border-box;
+        margin-left: -40px;
+      }
+    }
 
 
 </style>
