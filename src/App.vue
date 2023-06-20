@@ -2,8 +2,7 @@
 <header>
   <div class="container">
     <div class="icon">
-      <img src="./assets/header/icon.png" alt="icon">
-      <hr class="barraInvertida">
+      <img src="./assets/header/icon.png" alt="icon" class="barraInvertida">
     </div>
     <div class="title"><img src="./assets/header/icon.png" alt="icon" class="iconTitle"><router-link to="/" class="router-link">rkestra</router-link></div>
     <div class="profile">
@@ -40,13 +39,15 @@
 
     .icon{
       width: 10%;
-      margin-top: 10px;
       margin-left: 1%;
       position: relative;
+      display: grid;
+      border-right: 1px Solid#D6DFE4;
 
       .barraInvertida{
-        transform: rotate(90deg);
-        width: 93px;
+        width: 85%;
+        text-align: center;
+        align-self: center;
       }
     }
     .title{
