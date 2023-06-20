@@ -45,14 +45,15 @@
       border-right: 1px Solid#D6DFE4;
 
       .barraInvertida{
-        width: 85%;
+        width: 90%;
         text-align: center;
         align-self: center;
+        object-fit: contain;
       }
     }
     .title{
       width: 60%;
-      margin-top: 12px;
+      margin-top: 15px;
       font-size: 32px;
       position: relative;
       
@@ -131,22 +132,25 @@
 @media screen and (min-width: 550px) {
   .container {
     .title{
-      width: 72%;
-      margin-top: 12px;
+      width: 74%;
+      margin-top: 15px;
       font-size: 32px;
       position: relative;
     }
     .icon{
-      width: 10%;
-      margin-top: 10px;
-      margin-left: 0%;
+      width: 8%;
+      margin-left: 1%;
       position: relative;
-  }
-  .icon .barraInvertida{
-    transform: rotate(90deg);
-    width: 93px;
-    margin-left: 45%;
-  }
+      display: grid;
+      border-right: 1px Solid#D6DFE4;
+
+      .barraInvertida{
+        width: 65%;
+        text-align: center;
+        align-self: center;
+        object-fit: contain;
+      }
+    }
 
 
   .profile{
@@ -213,21 +217,24 @@
   .container {
     .title{
       width: 78%;
-      margin-top: 12px;
+      margin-top: 16px;
       font-size: 32px;
       position: relative;
     }
     .icon{
-      width: 10%;
-      margin-top: 10px;
-      margin-left: 0%;
+      width: 6%;
+      margin-left: 1%;
       position: relative;
-  }
-  .icon .barraInvertida{
-    transform: rotate(90deg);
-    width: 93px;
-    margin-left: 45%;
-  }
+      display: grid;
+      border-right: 1px Solid#D6DFE4;
+
+      .barraInvertida{
+        width: 65%;
+        text-align: center;
+        align-self: center;
+        object-fit: contain;
+      }
+    }
 
 
   .profile{
