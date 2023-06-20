@@ -7,13 +7,14 @@
     <div class="body">
       <div class="containerProductos" v-for="product in productos" :key="product.product_id">
         <div class="totalInfo">
-          <img :src="`${product.images[0]?.path}${product.images[0]?.file}`" class="imgProduct">
+          <img :src="product.images[0]?.path+product.images[0]?.file" class="imgProduct" v-if="product.images[0]?.path+product.images[0]?.file">
+          <img  v-else class="imgProduct1">
           <!-- <p>{{product.images[0]?.path}}{{product.images[0]?.file}}</p> -->
           <div class="allInfo">
-            <p class="colorGris">{{product.Product_description}}</p>
-            <p class="diferenteColor">{{product.Product_name}}</p>
-            <p :class="product.price_with_discount !== 0 ? 'colorRed' : 'colorGris'">{{product.price_with_discount}}</p>
-            <p class="colorGris">{{product.price}}</p>
+            <p class="colorGris">{{product.product_description}}</p>
+            <p class="diferenteColor">{{product.product_name}}</p>
+            <p :class="product.price_with_discount !== 0 ? 'colorRed' : 'colorGris'" v-if="product.price_with_discount!==0">${{product.price_with_discount.toLocaleString('en')}}.00</p>
+            <p class="colorGris">${{product.price.toLocaleString('en')}}.00</p>
             <p class="colorGris">{{product.color_name}}</p>
             <p class="colorGris">{{product.brand_name}}</p>
           </div>
@@ -90,6 +91,7 @@ export default {
   text-align: right;
   box-sizing: border-box;
   margin-left: -20px;
+  position: relative;
 
   .filtro{
     font-family: 'Hind';
@@ -99,6 +101,7 @@ export default {
     // line-height: 48px;
     text-decoration-line: underline;
     color: #2780BA;
+    margin-top: 1px;
   }
 }
 
@@ -115,7 +118,7 @@ export default {
     }
 
 .body{
-  margin-top: 20px;
+  margin-top: 10px;
   width: 95%;
   margin-left: 2.5%;
   background-color: white;
@@ -127,13 +130,29 @@ export default {
         position: relative;
         box-sizing: border-box;
         display: flex;
-        margin-top: 10px;
-        margin-bottom: 10px;
+        margin-top: 3px;
+        margin-bottom: 15px;
       
         .imgProduct{
-          width: 18%;
+          // width: 18%;
           margin-right: 20px;
           margin-left: 20px;
+          width: 74px;
+          height: 70px;
+          left: 19px;
+          align-self: center;
+          object-fit: contain;
+        }
+        .imgProduct1{
+          // width: 18%;
+          margin-right: 20px;
+          margin-left: 20px;
+          width: 74px;
+          height: 70px;
+          left: 19px;
+          align-self: center;
+          object-fit: contain;
+          opacity: 0;
         }
         .allInfo{
           width: 70%;
@@ -141,12 +160,30 @@ export default {
 
           .colorGris{
             color: #95A5A6;
+            font-family: 'Hind';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 120%;
+            letter-spacing: 0.5px;
           }
           .colorRed{
             color: red;
+            font-family: 'Hind';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 120%;
+            letter-spacing: 0.5px;
           }
           .diferenteColor{
             color: #35495E;
+            font-family: 'Hind';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 120%;
+            letter-spacing: 0.5px;
           }
         }
       }
@@ -155,17 +192,33 @@ export default {
 }
 @media screen and (min-width: 768px) {
   .colorFont .body .containerProductos .totalInfo .imgProduct{
-    width: 12%;
-      margin-right: 20px;
-      margin-left: 20px;
-      object-fit: contain;
+          margin-right: 20px;
+          margin-left: 20px;
+          width: 92px;
+          height: 88px;
+          left: 19px;
+          align-self: center;
+          object-fit: contain;
     }
+    .colorFont .body .containerProductos .totalInfo .imgProduct1{
+          margin-right: 26px;
+          margin-left: 31px;
+          width: 74px;
+          height: 70px;
+          left: 19px;
+          align-self: center;
+          object-fit: contain;
+          opacity: 0;
+        }
 }
     @media screen and (min-width: 1024px) {
       .colorFont .body .containerProductos .totalInfo .imgProduct{
-          width: 8%;
           margin-right: 20px;
           margin-left: 20px;
+          width: 92px;
+          height: 88px;
+          left: 19px;
+          align-self: center;
           object-fit: contain;
         }
       .colorFont .container-filtro{

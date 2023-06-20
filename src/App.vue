@@ -3,18 +3,19 @@
   <div class="container">
     <div class="icon">
       <img src="./assets/header/icon.png" alt="icon">
+      <hr class="barraInvertida">
     </div>
     <div class="title"><img src="./assets/header/icon.png" alt="icon" class="iconTitle"><router-link to="/" class="router-link">rkestra</router-link></div>
     <div class="profile">
-      <img src="./assets/header/profile.png" alt="icon">
+      <img src="./assets/header/profile.png" alt="icon" class="profileIcon">
     </div>
     <div class="car">
-      <img src="./assets/header/car.png" alt="icon">
-      <img class="centerCar" src="./assets/header/carrito.png" alt="car">
+      <img src="./assets/header/car.png" alt="icon" class="centerCar">
+      <img class="centerCar1" src="./assets/header/carrito.png" alt="car">
     </div>
     <div class="notifications">
-      <img src="./assets/header/notifications.png" alt="icon">
-      <img class="centerCampaign" src="./assets/header/campaign.png" alt="car">
+      <img src="./assets/header/notifications.png" alt="icon" class="centerCampaign">
+      <img class="centerCampaign1" src="./assets/header/campaign.png" alt="car">
     </div>
   </div>
 </header>
@@ -35,13 +36,21 @@
     height: 60px;
     background-image: url("./assets/header/fondoHeader.png");
     position: relative;
+    box-sizing: border-box;
 
     .icon{
       width: 10%;
       margin-top: 10px;
+      margin-left: 1%;
+      position: relative;
+
+      .barraInvertida{
+        transform: rotate(90deg);
+        width: 93px;
+      }
     }
     .title{
-      width: 45%;
+      width: 60%;
       margin-top: 12px;
       font-size: 32px;
       position: relative;
@@ -59,27 +68,223 @@
     }
 
     .profile{
-      width: 15%;
-      margin-top: 10px;
+      width: 10%;
+      padding-right: 1%;
+      padding-left: 2%;
+      position: relative;
+      display: grid;
+      border-left: 1px Solid#000000;
+      border-right: 1px Solid#000000;
+      .profileIcon{
+        width: 85%;
+        text-align: center;
+        align-self: center;
+      }
     }
     .car{
-      width: 15%;
-      margin-top: 10px;
-
+      width: 10%;
+      position: relative;
+      display: grid;
+      padding-right: 1%;
+      padding-left: 2%;
+      border-right: 1px Solid#000000;
+      text-align: center;
       .centerCar{
+        width: 85%;
+        text-align: center;
+        align-self: center;
+      }
+      .centerCar1{
+        width: 45%;
+        text-align: center;
+        align-self: center;
         position: absolute;
-        margin-left: -33px;
-        margin-top: 8px;
+        margin-left: 25%;
+        z-index: 10;
       }
     }
     .notifications{
-      width: 15%;
-      margin-top: 10px;
+      width: 10%;
+      position: relative;
+      display: grid;
+      padding-right: 1%;
+      padding-left: 2%;
+      text-align: center;
 
       .centerCampaign{
+        width: 85%;
+        text-align: center;
+        align-self: center;
+      }
+      .centerCampaign1{
+        width: 45%;
+        text-align: center;
+        align-self: center;
         position: absolute;
-        margin-left: -30px;
-        margin-top: 7px;
+        margin-left: 25%;
+        z-index: 10;
+      }
+    }
+  }
+}
+@media screen and (min-width: 550px) {
+  .container {
+    .title{
+      width: 72%;
+      margin-top: 12px;
+      font-size: 32px;
+      position: relative;
+    }
+    .icon{
+      width: 10%;
+      margin-top: 10px;
+      margin-left: 0%;
+      position: relative;
+  }
+  .icon .barraInvertida{
+    transform: rotate(90deg);
+    width: 93px;
+    margin-left: 45%;
+  }
+
+
+  .profile{
+      width: 6%;
+      padding-right: 2%;
+      padding-left: 2%;
+      position: relative;
+      display: grid;
+      border-left: 1px Solid#000000;
+      border-right: 1px Solid#000000;
+      .profileIcon{
+        width: 85%;
+        text-align: center;
+        align-self: center;
+      }
+    }
+    .car{
+      width: 6%;
+      position: relative;
+      display: grid;
+      padding-right: 2%;
+      padding-left: 2%;
+      border-right: 1px Solid#000000;
+      text-align: center;
+      .centerCar{
+        width: 85%;
+        text-align: center;
+        align-self: center;
+      }
+      .centerCar1{
+        // width: 90%;
+        text-align: center;
+        align-self: center;
+        position: absolute;
+        margin-left: 25%;
+        z-index: 10;
+      }
+    }
+    .notifications{
+      width: 6%;
+      position: relative;
+      display: grid;
+      padding-right: 2%;
+      padding-left: 2%;
+      text-align: center;
+
+      .centerCampaign{
+        width: 85%;
+        text-align: center;
+        align-self: center;
+      }
+      .centerCampaign1{
+        text-align: center;
+        align-self: center;
+        position: absolute;
+        margin-left: 25%;
+        z-index: 10;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .container {
+    .title{
+      width: 78%;
+      margin-top: 12px;
+      font-size: 32px;
+      position: relative;
+    }
+    .icon{
+      width: 10%;
+      margin-top: 10px;
+      margin-left: 0%;
+      position: relative;
+  }
+  .icon .barraInvertida{
+    transform: rotate(90deg);
+    width: 93px;
+    margin-left: 45%;
+  }
+
+
+  .profile{
+      width: 4%;
+      padding-right: 2%;
+      padding-left: 2%;
+      position: relative;
+      display: grid;
+      border-left: 1px Solid#000000;
+      border-right: 1px Solid#000000;
+      .profileIcon{
+        width: 85%;
+        text-align: center;
+        align-self: center;
+      }
+    }
+    .car{
+      width: 4%;
+      position: relative;
+      display: grid;
+      padding-right: 2%;
+      padding-left: 2%;
+      border-right: 1px Solid#000000;
+      text-align: center;
+      .centerCar{
+        width: 85%;
+        text-align: center;
+        align-self: center;
+      }
+      .centerCar1{
+        width: 30%;
+        text-align: center;
+        align-self: center;
+        position: absolute;
+        margin-left: 30%;
+        z-index: 10;
+      }
+    }
+    .notifications{
+      width: 4%;
+      position: relative;
+      display: grid;
+      padding-right: 2%;
+      padding-left: 2%;
+      text-align: center;
+
+      .centerCampaign{
+        width: 85%;
+        text-align: center;
+        align-self: center;
+      }
+      .centerCampaign1{
+        width: 30%;
+        text-align: center;
+        align-self: center;
+        position: absolute;
+        margin-left: 30%;
+        z-index: 10;
       }
     }
   }

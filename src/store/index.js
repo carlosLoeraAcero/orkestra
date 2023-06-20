@@ -35,7 +35,7 @@ export default createStore({
       })
       try {
       const res = await api(`api/v1/smart-cart/products?with_selects=1${search?`&search=${search}`:''}${page?`&page=${page}`:''}${page&&limit?`&limit=${limit}`:''}`);
-      console.log("respuesta",res.data.msg[0])
+      console.log("respuesta",res)
       if(res.data.msg[0] === "No se encontraron registros"){
         console.log("entro")
         commit("setMensaje", "No existen resultados para esta búsqueda");

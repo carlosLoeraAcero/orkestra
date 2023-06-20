@@ -57,6 +57,7 @@ setup(){
   top: 0;
   z-index: 10;
   background-color: #E3E9EE;
+  padding-top: 20px;
 
   .inputSearch{
     box-sizing: border-box;
